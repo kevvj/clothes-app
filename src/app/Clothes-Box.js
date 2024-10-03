@@ -14,7 +14,7 @@ const products = [
 const ClothesBox = () => {
     return (
         <div className="c-container">
-            <h1 className="">Our Products</h1>
+            <h1 className="title">Our Products</h1>
 
             <div className="card-container">
 
@@ -35,7 +35,7 @@ const ClothesBox = () => {
 
                             <button className = "Button">Add to cart</button>
 
-                            <button className = "Button">💟</button>
+                            <input type="radio" name="clr1"></input>
 
                         </div>
 
