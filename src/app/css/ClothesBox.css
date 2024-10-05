@@ -63,3 +63,11 @@
 .card-footer input{
     content: '\f004';
 }
+
+.Heart{
+    color: red;
+}
+
+.noHeart{
+    color: #000000;
+}
