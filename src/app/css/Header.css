@@ -18,3 +18,30 @@
 .user-panel button{
     background-color: white;
 }
+
+@media (max-width:700px){
+
+    .Header{
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    .nav-container{
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+
+    
+        
+
+}
