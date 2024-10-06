@@ -41,7 +41,6 @@
 }
 
 .Button:hover {
-    background-color: #ffe6af;
     transform: scale(1.05);
 }
 
