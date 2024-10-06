@@ -7,14 +7,14 @@ import { faHeart as HeartS } from "@fortawesome/free-solid-svg-icons";
 
 const aimg = "https://pixsector.com/cache/517d8be6/av5c8336583e291842624.png"
 const products = [
-    { id: 1, name: "product 1", price: 19.99, image: aimg },
-    { id: 2, name: "product 2", price: 49.99, image: aimg },
-    { id: 3, name: "product 3", price: 199.99, image: aimg },
-    { id: 4, name: "product 4", price: 19.99, image: aimg },
-    { id: 5, name: "product 5", price: 19.99, image: aimg },
-    { id: 6, name: "product 6", price: 49.99, image: aimg },
-    { id: 7, name: "product 7", price: 199.99, image: aimg },
-    { id: 8, name: "product 8", price: 19.99, image: aimg },
+    { id: 1, name: "producto 1", price: 19.99, image: "https://suplementosolimpicos.com/wp-content/uploads/2022/08/STRAPS-3.png" },
+    { id: 2, name: "producto 2", price: 49.99, image: "https://ae01.alicdn.com/kf/S43619d07a6204d7dba3bb3d4be5c7c76T/Zapatillas-de-deporte-de-moda-para-hombre-zapatos-casuales-para-gimnasio-trotar-tenis-entrenador-planos-suaves.jpg" },
+    { id: 3, name: "producto 3", price: 199.99, image: "https://s7d7.scene7.com/is/image/GTMSportswear/2611TU?qlt=80,0&resMode=sharp2&fmt=png-alpha&hei=500&wid=500&layer=1&op_colorize=181818" },
+    { id: 4, name: "producto 4", price: 19.99, image: "https://gravityec.com/wp-content/uploads/2024/01/CPN.webp" },
+    { id: 5, name: "producto 5", price: 19.99, image: aimg },
+    { id: 6, name: "producto 6", price: 49.99, image: aimg },
+    { id: 7, name: "producto 7", price: 199.99, image: aimg },
+    { id: 8, name: "producto 8", price: 19.99, image: aimg },
 ]
 
 
@@ -30,13 +30,13 @@ const ClothesBox = () => {
         setFavorites(prev =>
             prev.includes(ProductId) ? prev.filter(id => id !== ProductId) : [...prev, ProductId])
 
-            console.log(favorites)
+        console.log(favorites)
 
     }
 
     return (
         <div className="c-container">
-            
+
 
             <div className="card-container">
 
@@ -59,8 +59,8 @@ const ClothesBox = () => {
 
                             <button className="Button" onClick={() => HeartButton(product.id)}>
 
-                                
-                                <FontAwesomeIcon className={favorites.includes(product.id) ? "Heart":"noHeart"} icon={favorites.includes(product.id) ? HeartS:faHeart} size="1x" />
+
+                                <FontAwesomeIcon className={favorites.includes(product.id) ? "Heart" : "noHeart"} icon={favorites.includes(product.id) ? HeartS : faHeart} size="1x" />
 
                             </button>
 
