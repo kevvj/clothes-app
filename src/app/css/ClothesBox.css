@@ -1,6 +1,4 @@
-.title{
-    margin: 20px;
-}
+
 
 .card-content img {
     width: 250px;
@@ -49,7 +47,7 @@
 }
 
 .Button:disabled {
-    background-color: #ccc;
+    background-color: #ffffff;
     cursor: not-allowed;
     opacity: 0.6;
 }

@@ -1,0 +1,20 @@
+.Header{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.user-panel{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.user-panel button{
+    background-color: white;
+}

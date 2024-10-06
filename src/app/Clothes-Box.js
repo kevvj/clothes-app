@@ -36,7 +36,7 @@ const ClothesBox = () => {
 
     return (
         <div className="c-container">
-            <h1 className="title">Our Products</h1>
+            
 
             <div className="card-container">
 
