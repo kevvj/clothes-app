@@ -15,6 +15,9 @@ const products = [
     { id: 6, name: "producto 6", price: 49.99, image: aimg },
     { id: 7, name: "producto 7", price: 199.99, image: aimg },
     { id: 8, name: "producto 8", price: 19.99, image: aimg },
+    { id: 9, name: "producto 6", price: 49.99, image: aimg },
+    { id: 10, name: "producto 7", price: 199.99, image: aimg },
+    { id: 11, name: "producto 8", price: 19.99, image: aimg },
 ]
 
 
