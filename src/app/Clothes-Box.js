@@ -46,7 +46,6 @@ const ClothesBox = () => {
                         <div className="card-content">
 
                             <img src={product.image} alt={product.name} className=""></img>
-
                             
                             <h2 className="">{product.name}</h2>
 
