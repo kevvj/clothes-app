@@ -1,28 +1,50 @@
-.Header{
+.Header {
     padding: 20px;
     display: flex;
     justify-content: space-between;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-.nav-container{
+
+.nav-container {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-.user-panel{
+.user-panel {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-.user-panel button{
+.user-panel button {
     background-color: white;
 }
 
-@media (max-width:700px){
 
-    .Header{
+.icon-container{
+    position: relative;
+    display: inline-block;
+}
+
+.notification-badge{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    height: 12px;
+    width: 12px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+@media (max-width:1024px) {
+
+    .Header {
         padding: 0;
         justify-content: center;
         align-items: center;
@@ -31,7 +53,7 @@
         margin-top: 50px;
     }
 
-    .nav-container{
+    .nav-container {
         padding: 0;
         justify-content: center;
         align-items: center;
@@ -39,17 +61,19 @@
         gap: 30px;
         flex-direction: column;
         width: 100%;
-       
+
     }
 
-    .user-panel{
+    .user-panel {
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         justify-content: center;
         align-items: center;
     }
 
 
-    
-        
+
+
+
+
 
 }

@@ -20,7 +20,7 @@ const NavBar = () => {
     )
 }
 
-const UserPanel = () => {
+const UserPanel = ({ Liked, CartShooping }) => {
     return (
         <div className="user-panel">
             <button className="Button">
@@ -28,10 +28,16 @@ const UserPanel = () => {
 
             </button>
             <button className="Button">
-                <FontAwesomeIcon icon={faHeart} size="1x" />
+                <div className="icon-container">
+                    <FontAwesomeIcon icon={faHeart} size="1x" />
+                    <span className="notification-badge">{Liked}1</span>
+                </div>
             </button>
             <button className="Button">
-                <FontAwesomeIcon icon={faCartShopping} size="1x"></FontAwesomeIcon>
+                <div className="icon-container">
+                    <FontAwesomeIcon icon={faCartShopping} size="1x"></FontAwesomeIcon>
+                    <span className="notification-badge">{CartShooping}2</span>
+                </div>
             </button>
         </div>
     )
