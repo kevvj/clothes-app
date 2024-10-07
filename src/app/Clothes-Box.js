@@ -47,6 +47,7 @@ const ClothesBox = () => {
 
                             <img src={product.image} alt={product.name} className=""></img>
 
+                            
                             <h2 className="">{product.name}</h2>
 
                             <p>$ {product.price}</p>
