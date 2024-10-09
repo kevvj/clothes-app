@@ -30,8 +30,8 @@
     position: absolute;
     top: -5px;
     right: -5px;
-    height: 15px;
-    width: 15px;
+    height: 17px;
+    width: 17px;
     background-color: red;
     border-radius: 50%;
     display: flex;
@@ -40,6 +40,10 @@
     color: white;
     font-size: 10px;
 }
+
+.custom-icon {
+    font-size: 1.3rem; 
+  }
 
 @media (max-width:1024px) {
 
