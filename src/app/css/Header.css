@@ -30,8 +30,8 @@
     position: absolute;
     top: -5px;
     right: -5px;
-    height: 12px;
-    width: 12px;
+    height: 15px;
+    width: 15px;
     background-color: red;
     border-radius: 50%;
     display: flex;

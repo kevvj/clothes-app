@@ -20,7 +20,18 @@ const NavBar = () => {
     )
 }
 
-const UserPanel = ({ Liked, CartShooping }) => {
+
+
+const TitleWS = () => {
+    return (
+        <h1 className="title"><FontAwesomeIcon icon={faFrog} size="1x"></FontAwesomeIcon> Sindrome Sapo</h1>
+    )
+}
+
+
+const UserPanel = ({Fav}) => {
+     
+
     return (
         <div className="user-panel">
             <button className="Button">
@@ -30,32 +41,31 @@ const UserPanel = ({ Liked, CartShooping }) => {
             <button className="Button">
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faHeart} size="1x" />
-                    <span className="notification-badge">{Liked}1</span>
+                    <span className= {Fav.length > 0 ? "notification-badge":""}>{Fav.length > 0 ? Fav.length:""}</span>
+                    
                 </div>
             </button>
             <button className="Button">
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faCartShopping} size="1x"></FontAwesomeIcon>
-                    <span className="notification-badge">{CartShooping}2</span>
+                    <span className="notification-badge">2</span>
                 </div>
             </button>
         </div>
     )
 }
 
-const TitleWS = () => {
-    return (
-        <h1 className="title"><FontAwesomeIcon icon={faFrog} size="1x"></FontAwesomeIcon> Sindrome Sapo</h1>
-    )
-}
 
+const Header = ({Fav}) => {
 
-const Header = () => {
+   
+
+    
     return (
         <div className="Header">
             <TitleWS></TitleWS>
             <NavBar></NavBar>
-            <UserPanel></UserPanel>
+            <UserPanel Fav={Fav}></UserPanel>
         </div>
     )
 
