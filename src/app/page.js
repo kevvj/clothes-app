@@ -22,6 +22,7 @@ const products = [
 export default function Home() {
 
   const [favorites, setFavorites] = useState([])
+  const [cartShopping, setCartShopping] = useState([])
 
   const HeartButton = (ProductId) => {
 
@@ -32,14 +33,22 @@ export default function Home() {
 
   }
 
+  const CartSButton = (ProductId) => {
+
+    setCartShopping(prev =>
+        prev.includes(ProductId) ? prev.filter(id => id !== ProductId) : [...prev, ProductId])
+
+    console.log(cartShopping)
+}
+
 
   return (
 
 
     <div>
-      <Header Fav = {favorites}></Header>
+      <Header Fav = {favorites} CS={cartShopping}></Header>
 
-      <ClothesBox prod={products} HB={HeartButton} Fav={favorites}></ClothesBox>
+      <ClothesBox prod={products} CS={cartShopping} CSB={CartSButton}  HB={HeartButton} Fav={favorites}></ClothesBox>
 
     </div>
 

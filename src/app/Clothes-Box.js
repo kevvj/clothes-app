@@ -8,7 +8,7 @@ import { faHeart as HeartS } from "@fortawesome/free-solid-svg-icons";
 
 
 
-const ClothesBox = ({prod,HB,Fav}) => {
+const ClothesBox = ({prod,HB,Fav,CSB, CS}) => {
 
 
     
@@ -34,7 +34,10 @@ const ClothesBox = ({prod,HB,Fav}) => {
 
                         <div className="card-footer">
 
-                            <button className="Button">Add to cart</button>
+                            <button className="Button" onClick={() => CSB(product.id)}>
+                                
+                                {CS.includes(product.id) ? "Pagar en carrito" : "Añadir al carrito"}
+                                </button>
 
                             <button className="Button" onClick={() => HB(product.id)}>
 

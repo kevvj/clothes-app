@@ -4,6 +4,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faFrog } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 
 const NavBar = () => {
@@ -29,8 +30,8 @@ const TitleWS = () => {
 }
 
 
-const UserPanel = ({Fav}) => {
-     
+const UserPanel = ({ Fav, CS }) => {
+
 
     return (
         <div className="user-panel">
@@ -41,14 +42,22 @@ const UserPanel = ({Fav}) => {
             <button className="Button">
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faHeart} className="custom-icon" />
-                    <span className= {Fav.length > 0 ? "notification-badge":""}>{Fav.length > 0 ? Fav.length:""}</span>
-                    
+
+                    <span className={Fav.length > 0 ? "notification-badge" : ""}>{Fav.length > 0 ? Fav.length : ""}</span>
+
                 </div>
             </button>
             <button className="Button">
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faCartShopping} className="custom-icon"></FontAwesomeIcon>
-                    <span className="notification-badge">2</span>
+                    
+                    <span className={CS.length > 0 ? "notification-badge" : ""} >{CS.length > 0 ? CS.length : ""}</span>
+                </div>
+            </button>
+
+            <button className="Button">
+                <div className="icon-container">
+                    <FontAwesomeIcon icon={faCircleUser} className="custom-icon"></FontAwesomeIcon>
                 </div>
             </button>
         </div>
@@ -56,16 +65,16 @@ const UserPanel = ({Fav}) => {
 }
 
 
-const Header = ({Fav}) => {
+const Header = ({ Fav , CS }) => {
 
-   
 
-    
+
+
     return (
         <div className="Header">
             <TitleWS></TitleWS>
             <NavBar></NavBar>
-            <UserPanel Fav={Fav}></UserPanel>
+            <UserPanel Fav={Fav} CS={CS}></UserPanel>
         </div>
     )
 
