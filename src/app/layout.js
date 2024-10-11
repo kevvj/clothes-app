@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "🍥",
+  title: "Puchaina",
   description: "a prototype",
 };
 
