@@ -2,6 +2,7 @@
 import ClothesBox from "./Clothes-Box";
 import Header from "./Header";
 import { useState } from 'react';
+import PrincipalBox from "./Principal-Box";
 
 const aimg = "https://pixsector.com/cache/517d8be6/av5c8336583e291842624.png"
 
@@ -11,12 +12,19 @@ const products = [
   { id: 3, name: "Camiseta de compresion", price: 30.99, image: "https://s7d7.scene7.com/is/image/GTMSportswear/2611TU?qlt=80,0&resMode=sharp2&fmt=png-alpha&hei=500&wid=500&layer=1&op_colorize=181818" },
   { id: 4, name: "Cinturon", price: 70.99, image: "https://gravityec.com/wp-content/uploads/2024/01/CPN.webp" },
   { id: 5, name: "Camiseta Blanca Poison", price: 999.99, image: "https://images-na.ssl-images-amazon.com/images/I/51dRXn4pwdS._AC_UL600_SR600,600_.jpg" },
-  { id: 6, name: "producto 6", price: 49.99, image: aimg },
+  { id: 6, name: "producto 6", price: 49.99, image: aimg},
+  { id: 7, name: "producto 7", price: 199.99, image: aimg},
+  { id: 8, name: "producto 8", price: 19.99, image: aimg},
+  { id: 9, name: "producto 9", price: 49.99, image: aimg},
+  { id: 10, name: "producto 10", price: 199.99, image: aimg},
+  { id: 11, name: "producto 11", price: 19.99, image: aimg},
+]
+
+const products2 = [
+  { id: 11, name: "producto 11", price: 19.99, image: aimg },
   { id: 7, name: "producto 7", price: 199.99, image: aimg },
   { id: 8, name: "producto 8", price: 19.99, image: aimg },
   { id: 9, name: "producto 9", price: 49.99, image: aimg },
-  { id: 10, name: "producto 10", price: 199.99, image: aimg },
-  { id: 11, name: "producto 11", price: 19.99, image: aimg },
 ]
 
 export default function Home() {
@@ -33,12 +41,19 @@ export default function Home() {
 
   }
 
+
   const CartSButton = (ProductId) => {
 
     setCartShopping(prev =>
         prev.includes(ProductId) ? prev.filter(id => id !== ProductId) : [...prev, ProductId])
 
     console.log(cartShopping)
+}
+
+const SetView = ({p}) =>{
+  return(
+    <ClothesBox prod={p} CS={cartShopping} CSB={CartSButton}  HB={HeartButton} Fav={favorites}></ClothesBox>
+  )
 }
 
 
@@ -48,7 +63,10 @@ export default function Home() {
     <div>
       <Header Fav = {favorites} CS={cartShopping}></Header>
 
-      <ClothesBox prod={products} CS={cartShopping} CSB={CartSButton}  HB={HeartButton} Fav={favorites}></ClothesBox>
+   
+      <PrincipalBox></PrincipalBox>
+
+      <SetView p={products2}></SetView>
 
     </div>
 

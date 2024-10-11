@@ -25,7 +25,7 @@ const NavBar = () => {
 
 const TitleWS = () => {
     return (
-        <h1 className="title"><FontAwesomeIcon icon={faFrog} size="1x"></FontAwesomeIcon> Sindrome Sapo</h1>
+        <h1 className="title"><FontAwesomeIcon icon={faFrog} size="1x"></FontAwesomeIcon> SomeThing</h1>
     )
 }
 
