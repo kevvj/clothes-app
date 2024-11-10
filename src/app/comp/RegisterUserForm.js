@@ -32,12 +32,12 @@ const UserForm = () => {
     }
 
     const handleRegisterClick = () => {
-        router.push('/register')
+        
     };
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        router.push('/')
+        router.push('/login')
     }
 
 
@@ -54,7 +54,41 @@ const UserForm = () => {
 
 
 
-                    <h2>Iniciar Sesion</h2>
+                    <h2>Registrar</h2>
+
+                    <div>
+                        <p>Nombres</p>
+                        <input
+                            type='text'
+                            values={username}
+                            name="username"
+                            placeholder='Escriba su nombre'
+                            onChange={({ target }) => setUsername(target.value)}
+                        ></input>
+                    </div>
+
+                    <div>
+                        <p>Apellidos</p>
+                        <input
+                            type='text'
+                            values={username}
+                            name="username"
+                            placeholder='Escriba su apellido'
+                            onChange={({ target }) => setUsername(target.value)}
+                        ></input>
+                    </div>
+
+                    <div>
+                        <p>Pais</p>
+                        <input
+                            type='text'
+                            values={username}
+                            name="username"
+                            placeholder='Escriba su pais'
+                            onChange={({ target }) => setUsername(target.value)}
+                        ></input>
+                    </div>
+
 
                     <div>
                         <p>Usuario</p>
@@ -79,8 +113,9 @@ const UserForm = () => {
                     </div>
 
                     <div className = "button-form-conteiner">
-                        <button type = "submit" className="Button">Ingresar</button>
-                        <button type = "button" className="Button" onClick = {handleRegisterClick}>Registrar</button>
+                        <button type = "submit" className="Button" onClick = {handleRegisterClick}>Registrar</button>
+
+                        <button type = "button" className="Button" >Iniciar Sesion</button>
                     </div>
 
 
