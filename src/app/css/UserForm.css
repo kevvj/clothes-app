@@ -69,3 +69,8 @@
 .error {
     color: red;
 }
+
+.button-form-conteiner{
+    display: flex;
+    justify-content: space-between;
+}

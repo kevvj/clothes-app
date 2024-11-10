@@ -1,28 +1,26 @@
-'use client';
-import Header from "./comp/Header";
+'use client';  
+
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Header from "./comp/Header";
 import PrincipalBox from "./comp/Principal-Box";
-import { products, products2 } from "./utils/mockData/Products";
-import {UserPanelButton} from "./utils/actions/UserPanelButton"
-import { SetView } from "./utils/renderers/SetView";
-
-
 
 export default function Home() {
+  const [favorites, setFavorites] = useState([]);
+  const [cartShopping, setCartShopping] = useState([]);
 
-  const [favorites, setFavorites] = useState([])
-  const [cartShopping, setCartShopping] = useState([])
 
-  
+  const router = useRouter()
+
+  const UserPanelButton = () => {
+     router.push('/login');
+  };
 
   return (
     <>
-      <Header Fav = {favorites} CS={cartShopping} UserB={UserPanelButton}></Header>
-      <PrincipalBox></PrincipalBox>
-      <SetView p={products}></SetView>
+      <Header Fav={favorites} CS={cartShopping} UserB={UserPanelButton} />
+      <PrincipalBox />
     </>
-
-
   );
 }
 

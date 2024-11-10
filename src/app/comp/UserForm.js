@@ -32,8 +32,8 @@ const UserForm = () => {
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault()        
-            router.push('/')
+        event.preventDefault()
+        router.push('/')
     }
 
 
@@ -42,13 +42,13 @@ const UserForm = () => {
     return (
         <div className="user-form-content">
 
-            <div className= "user-form">
+            <div className="user-form">
 
-            <button className="left-button" onClick = {handleSubmit}>←</button>
+                <button className="left-button" onClick={handleSubmit}>←</button>
 
                 <form onSubmit={handleSubmitForm}>
 
-                    
+
 
                     <h2>Iniciar Sesion</h2>
 
@@ -74,7 +74,11 @@ const UserForm = () => {
                         ></input>
                     </div>
 
-                    <button className="Button">Ingresar</button>
+                    <div className = "button-form-conteiner">
+                        <button className="Button">Ingresar</button>
+                        <button className="Button">Registrar</button>
+                    </div>
+
 
                     {isLoggedIn === false && <p className="error">Usuario o contraseña incorrecta</p>}
                 </form>
