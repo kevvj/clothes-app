@@ -1,0 +1,47 @@
+.user-form-content {
+    padding: 60px ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.user-form-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #ccc;
+    width: 500px;
+    padding: 100px;
+    border-radius: 8px;
+}
+
+.user-form-content form button {
+    align-self: center;
+    width: auto;
+}
+
+.user-form-content form p{
+    margin: 5px;
+}
+
+.user-form-content form input {
+     padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin: 5px 0;
+    width: 100%; 
+}
+
+.user-form-content form div{
+text-align: left;
+}
+
+.error{
+    color: red;
+}
