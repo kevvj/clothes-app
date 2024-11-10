@@ -3,6 +3,7 @@ import "./globals.css";
 
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import {config} from "@fortawesome/fontawesome-svg-core"
+import Header from "./comp/Header";
 config.autoAddCss = false;
 
 const geistSans = localFont({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        
         {children}
       </body>
     </html>

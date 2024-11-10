@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const UserForm = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+    const router = useRouter();
 
     const users = [
         { id: 1, username: "user", password: "password" },
@@ -22,6 +25,7 @@ const UserForm = () => {
         if( user && user.password === event.target.password.value){
             
             setIsLoggedIn(true)
+            router.push('/')
         }else{
             setIsLoggedIn(false)
         }

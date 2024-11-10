@@ -30,7 +30,7 @@ const TitleWS = () => {
 }
 
 
-const UserPanel = ({ Fav, CS }) => {
+const UserPanel = ({ Fav, CS, UserB }) => {
 
 
     return (
@@ -55,7 +55,7 @@ const UserPanel = ({ Fav, CS }) => {
                 </div>
             </button>
 
-            <button className="Button">
+            <button className="Button" onClick={() => UserB("mensaje")}>
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faCircleUser} className="custom-icon"></FontAwesomeIcon>
                 </div>
@@ -65,7 +65,7 @@ const UserPanel = ({ Fav, CS }) => {
 }
 
 
-const Header = ({ Fav , CS }) => {
+const Header = ({ Fav , CS, UserB }) => {
 
 
 
@@ -74,7 +74,7 @@ const Header = ({ Fav , CS }) => {
         <div className="Header">
             <TitleWS></TitleWS>
             <NavBar></NavBar>
-            <UserPanel Fav={Fav} CS={CS}></UserPanel>
+            <UserPanel Fav={Fav} CS={CS} UserB={UserB}></UserPanel>
         </div>
     )
 
