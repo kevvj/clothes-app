@@ -8,7 +8,7 @@ import { faHeart as HeartS } from "@fortawesome/free-solid-svg-icons";
 
 
 
-const ClothesBox = ({prod,HB,Fav,CSB, CS}) => {
+const ClothesBox = ({prod,HB,Fav,CSB, CS, setCartShopping, setFavorites}) => {
 
 
     
@@ -34,12 +34,12 @@ const ClothesBox = ({prod,HB,Fav,CSB, CS}) => {
 
                         <div className="card-footer">
 
-                            <button className="Button" onClick={() => CSB(product.id)}>
+                            <button className="Button" onClick={() => CSB(product.id, setCartShopping)}>
                                 
                                 {CS.includes(product.id) ? "Pagar en carrito" : "Añadir al carrito"}
                                 </button>
 
-                            <button className="Button" onClick={() => HB(product.id)}>
+                            <button className="Button" onClick={() => HB(product.id,setFavorites)}>
 
 
                                 <FontAwesomeIcon className={Fav.includes(product.id) ? "Heart" : "noHeart"} icon={Fav.includes(product.id) ? HeartS : faHeart} size="1x" />
