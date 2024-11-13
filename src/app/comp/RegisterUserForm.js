@@ -32,7 +32,7 @@ const UserForm = () => {
     }
 
     const handleRegisterClick = () => {
-        
+
     };
 
     const handleSubmit = (event) => {
@@ -112,10 +112,10 @@ const UserForm = () => {
                         ></input>
                     </div>
 
-                    <div className = "button-form-conteiner">
-                        <button type = "submit" className="Button" onClick = {handleRegisterClick}>Registrar</button>
+                    <div className="button-form-conteiner">
+                        <button type="submit" className="Button" onClick={handleRegisterClick}>Registrar</button>
 
-                        <button type = "button" className="Button" >Iniciar Sesion</button>
+                        <button type="button" className="Button" >Iniciar Sesion</button>
                     </div>
 
 
