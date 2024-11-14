@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 const UserForm = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [country, setCountry] = useState("");
+    const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,7 +16,7 @@ const UserForm = () => {
         const userData = {
             firstName,
             lastName,
-            country,
+            email,
             username,
             password,
         };
@@ -75,13 +75,13 @@ const UserForm = () => {
                     </div>
 
                     <div>
-                        <p>País</p>
+                        <p>Correo electronico</p>
                         <input
                             type='text'
-                            value={country}
-                            name="country"
+                            value={email}
+                            name="email"
                             placeholder='Escriba su país'
-                            onChange={({ target }) => setCountry(target.value)}
+                            onChange={({ target }) => setEmail(target.value)}
                         />
                     </div>
 
