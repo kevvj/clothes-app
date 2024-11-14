@@ -17,17 +17,34 @@ const UserForm = () => {
 
 
 
-    const handleSubmitForm = (event) => {
+    const handleSubmitForm = async (event) => {
         event.preventDefault()
 
-        const user = users.find(u => u.username === event.target.username.value)
+        try {
 
-        if (user && user.password === event.target.password.value) {
+            const response = await fetch("http://localhost:3001/login", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
 
-            setIsLoggedIn(true)
-            router.push('/')
-        } else {
-            setIsLoggedIn(false)
+            const data = await response.json()
+            if(response.ok){
+                setIsLoggedIn(true)
+                router.push('/');
+                console.log(data.message)
+
+            }else{
+                setIsLoggedIn(false)
+                console.error(data.message)
+            }
+
+        } catch (error) {
+
+            console.error("Error en la solicitud de login:", error);
+
         }
     }
 
@@ -35,9 +52,13 @@ const UserForm = () => {
         router.push('/register')
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit =  (event) => {
         event.preventDefault()
         router.push('/')
+
+        ////////////////////////////////////
+
+        
     }
 
 
@@ -78,9 +99,9 @@ const UserForm = () => {
                         ></input>
                     </div>
 
-                    <div className = "button-form-conteiner">
-                        <button type = "submit" className="Button">Ingresar</button>
-                        <button type = "button" className="Button" onClick = {handleRegisterClick}>Registrar</button>
+                    <div className="button-form-conteiner">
+                        <button type="submit" className="Button">Ingresar</button>
+                        <button type="button" className="Button" onClick={handleRegisterClick}>Registrar</button>
                     </div>
 
 
