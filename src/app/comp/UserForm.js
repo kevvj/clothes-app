@@ -1,20 +1,13 @@
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import {isLoggedIn, setIsLoggedIn} from '../globals/LogIn'
 
-const UserForm = ( {isLoggedIn,setIsLoggedIn} ) => {
+const UserForm = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     const router = useRouter();
-
-    const users = [
-        { id: 1, username: "user", password: "password" },
-        { id: 2, username: "user2", password: "password2" },
-        { id: 3, username: "user3", password: "password3" },
-    ];
-
-
 
     const handleSubmitForm = async (event) => {
         event.preventDefault()
@@ -32,9 +25,9 @@ const UserForm = ( {isLoggedIn,setIsLoggedIn} ) => {
             const data = await response.json()
             if(response.ok){
                 setIsLoggedIn(true)
-                setIsLogin(true)
                 router.push('/');
                 console.log(data.message)
+                
 
             }else{
                 setIsLoggedIn(false)

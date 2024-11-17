@@ -10,16 +10,26 @@ import { CartSButton } from './utils/actions/CartButton'
 import { HeartButton } from './utils/actions/HeartButton'
 
 
-export default function Home() {
-  const [favorites, setFavorites] = useState([])
-  const [cartShopping, setCartShopping] = useState([])
+import {isLoggedIn, setIsLoggedIn} from './globals/LogIn'
+import { useStateContext } from './globals/StateContext'
 
-  const [isLogin, setIsLogin] = useState(null)
+
+export default function Home() {
+  const {favorites, setFavorites} = useStateContext()
+  const {cartShopping, setCartShopping} = useStateContext()
+
 
   const router = useRouter()
 
   const UserPanelButton = () => {
-    router.push('/login')
+
+    if(!isLoggedIn()){
+      router.push('/login')
+    }else{
+      router.push('/user')
+    }
+    
+    console.log(isLoggedIn())
   }
 
   return (

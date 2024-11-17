@@ -10,6 +10,9 @@ import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
 import { useState } from 'react'
 
 
+import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
+
+
 
 const NavBar = () => {
     return (
@@ -36,7 +39,6 @@ const TitleWS = () => {
 
 const UserPanel = ({ Fav, CS, UserB }) => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
 
 
     return (
@@ -64,9 +66,13 @@ const UserPanel = ({ Fav, CS, UserB }) => {
             <button className="Button" onClick={() => UserB()}>
                 <div className="icon-container">
 
-                    {isLoggedIn ?
-                        <img  src="./img/Racist_Cat.webp"></img>
-                        : <FontAwesomeIcon  icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon>}
+                    {isLoggedIn() ?
+
+                        <img src="./img/Racist_Cat.webp"></img>
+
+                        :
+
+                        <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon>}
 
                 </div>
             </button >
