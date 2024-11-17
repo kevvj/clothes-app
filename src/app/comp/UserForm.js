@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const UserForm = () => {
+const UserForm = ( {isLoggedIn,setIsLoggedIn} ) => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [isLoggedIn, setIsLoggedIn] = useState(null);
 
     const router = useRouter();
 
@@ -33,6 +32,7 @@ const UserForm = () => {
             const data = await response.json()
             if(response.ok){
                 setIsLoggedIn(true)
+                setIsLogin(true)
                 router.push('/');
                 console.log(data.message)
 

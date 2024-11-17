@@ -1,10 +1,14 @@
+'use client'
+
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faFrog } from "@fortawesome/free-solid-svg-icons";
-import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons"
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
+import { faFrog } from "@fortawesome/free-solid-svg-icons"
+import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
+import { useState } from 'react'
+
 
 
 const NavBar = () => {
@@ -32,6 +36,8 @@ const TitleWS = () => {
 
 const UserPanel = ({ Fav, CS, UserB }) => {
 
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
+
 
     return (
         <div className="user-panel">
@@ -50,22 +56,26 @@ const UserPanel = ({ Fav, CS, UserB }) => {
             <button className="Button">
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faCartShopping} className="custom-icon"></FontAwesomeIcon>
-                    
+
                     <span className={CS.length > 0 ? "notification-badge" : ""} >{CS.length > 0 ? CS.length : ""}</span>
                 </div>
             </button>
 
-            <button className="Button" onClick={() => UserB("mensaje")}>
+            <button className="Button" onClick={() => UserB()}>
                 <div className="icon-container">
-                    <FontAwesomeIcon icon={faCircleUser} className="custom-icon"></FontAwesomeIcon>
+
+                    {isLoggedIn ?
+                        <img  src="./img/Racist_Cat.webp"></img>
+                        : <FontAwesomeIcon  icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon>}
+
                 </div>
-            </button>
-        </div>
+            </button >
+        </div >
     )
 }
 
 
-const Header = ({ Fav , CS, UserB }) => {
+const Header = ({ Fav, CS, UserB }) => {
 
 
 

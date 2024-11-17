@@ -1,25 +1,26 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Header from "./comp/Header";
-import PrincipalBox from "./comp/Principal-Box";
-import { SetView } from './utils/renderers/SetView';
-import { products } from './utils/mockData/Products';
-import { CartSButton } from './utils/actions/CartButton';
-import { HeartButton } from './utils/actions/HeartButton';
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Header from "./comp/Header"
+import PrincipalBox from "./comp/Principal-Box"
+import { SetView } from './utils/renderers/SetView'
+import { products } from './utils/mockData/Products'
+import { CartSButton } from './utils/actions/CartButton'
+import { HeartButton } from './utils/actions/HeartButton'
 
 
 export default function Home() {
-  const [favorites, setFavorites] = useState([]);
-  const [cartShopping, setCartShopping] = useState([]);
+  const [favorites, setFavorites] = useState([])
+  const [cartShopping, setCartShopping] = useState([])
 
+  const [isLogin, setIsLogin] = useState(null)
 
   const router = useRouter()
 
   const UserPanelButton = () => {
-    router.push('/login');
-  };
+    router.push('/login')
+  }
 
   return (
     <>
