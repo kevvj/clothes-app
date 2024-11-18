@@ -3,12 +3,106 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .user-section{
+    display: flex;
     margin-top: 30px;
     width: 70%;
-    height: 400px;
     text-align: center;
-    background-color: antiquewhite;
+    border: 1px solid #ccc;
+    padding: 20px;
+    gap: 200px;
 }
+
+.user-section img{
+    width: 220px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+    height: 100%;
+}
+
+.data-settings-container{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 20px;
+}
+
+.settings-item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.settings-item button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+.settings-item-button{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+/* 
+
+.user-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.user-section form label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+
+.user-section form input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.user-section form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+
+.user-section form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.user-section form button[type="submit"]:active {
+    background-color: #004085;
+} */
