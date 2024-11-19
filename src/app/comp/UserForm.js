@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
     isLoggedIn, setIsLoggedIn,
+    idClient,setidClient,
     usernameGlobal, setUsernameGlobal,
     name, setName,
     email, setEmail,
@@ -38,8 +39,9 @@ const UserForm = () => {
                 setName(data.user.name)
                 setEmail(data.user.email)
                 setRegistrationDate(data.user.registration_date)
+                setidClient(data.user.id)
 
-                console.log(usernameGlobal(), name(), email(), registrationDate())
+                console.log("Nombre de usuario: ",usernameGlobal(), "Nombre del cliente: ",name(), "Correo electronico: ",email(),"Fecha de registro: ", registrationDate(),"ID del cliente: ",idClient())
 
 
             } else {

@@ -1,16 +1,21 @@
 'use client';
 import { useState } from 'react'
-import Header from "../comp/Header";
+import Header from "../comp/Header"
 import { useRouter } from 'next/navigation'
 import PrincipalBox from "../comp/Principal-Box"
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+    isLoggedIn, setIsLoggedIn,
+    usernameGlobal, setUsernameGlobal,
+    name, setName,
+    email, setEmail,
+    registrationDate, setRegistrationDate
+} from '../globals/LogIn'
 
-
-import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
 import { useStateContext } from '../globals/StateContext'
 
-import {profilePicture, setProfilePicture} from '../globals/ProfilePicture'
+import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
 
 export default function Home() {
 
@@ -38,8 +43,8 @@ export default function Home() {
             const file = event.target.files[0]
             if (file) {
                 const formData = new FormData()
-                formData.append('file-upload', file) 
-                formData.append('clientId', 3) 
+                formData.append('file-upload', file)
+                formData.append('clientId', 3)
 
                 try {
                     const response = await fetch('http://localhost:3001/upload', {
@@ -63,6 +68,9 @@ export default function Home() {
             }
         }
 
+        const handleResetPasswordForm = () =>{
+            router.push('/user/passwordupdate')
+        }
 
 
         return (
@@ -97,27 +105,18 @@ export default function Home() {
                         <div className="settings-item">
 
                             <h4>Nombres: </h4>
-                            <p>Kevin José</p>
+                            <p>{name()}</p>
                             <button>
                                 <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                             </button>
 
                         </div>
 
-                        <div className="settings-item">
-
-                            <h4>Apellidos: </h4>
-                            <p>Tapias Villalba</p>
-                            <button>
-                                <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
-                            </button>
-
-                        </div>
 
                         <div className="settings-item">
 
                             <h4>Nombre de usuario: </h4>
-                            <p>Inge Kevin</p>
+                            <p>{usernameGlobal()}</p>
                             <button>
                                 <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                             </button>
@@ -127,37 +126,16 @@ export default function Home() {
                         <div className="settings-item">
 
                             <h4>Correo Electronico: </h4>
-                            <p>Kevinjvillalba774@gmail.com</p>
+                            <p>{email()}</p>
                             <button>
                                 <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                             </button>
 
                         </div>
 
-                        <div className="settings-item-button"><button className="Button">Cambiar contraseña</button></div>
-
-
-                        {/* <div className="settings-item">
-                            <h4>Cambiar Contraseña:</h4>
-                            <form className="password-change-form">
-                                <input type="password" placeholder="Nueva contraseña" />
-                                <input type="password" placeholder="Confirmar contraseña" />
-                                <button type="submit">Actualizar</button>
-                            </form>
-                        </div> */}
-
+                        <div className="settings-item-button"><button className="Button" onClick={handleResetPasswordForm}>Cambiar contraseña</button></div>
                     </div>
-
-
-
-                    {/* <form action="/ruta/donde/quieras/subir" method="POST" enctype="multipart/form-data">
-                        <label for="file-upload">Selecciona un archivo:</label>
-                        <input type="file" id="file-upload" name="file-upload" accept=".jpg,.jpeg,.png" />
-                        <button type="submit">Subir archivo</button>
-                    </form> */}
                 </div>
-
-
             </div>
         )
     }

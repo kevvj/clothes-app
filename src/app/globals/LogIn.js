@@ -8,6 +8,8 @@ export const setIsLoggedIn = (n) =>{
 
 /* ////////////////////////////// */
 
+let IdClient = 0
+
 let UserName = ""
 
 let Name = ""
@@ -15,6 +17,12 @@ let Name = ""
 let Email = ""
 
 let Registration_date = ""
+
+export const idClient = () => IdClient
+
+export const setidClient = (n) =>{
+    IdClient = n
+}
 
 export const usernameGlobal = () => UserName
 
