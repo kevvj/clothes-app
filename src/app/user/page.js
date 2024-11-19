@@ -1,5 +1,5 @@
 'use client';
-
+import { useState } from 'react'
 import Header from "../comp/Header";
 import { useRouter } from 'next/navigation'
 import PrincipalBox from "../comp/Principal-Box"
@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
 import { useStateContext } from '../globals/StateContext'
+
+import {profilePicture, setProfilePicture} from '../globals/ProfilePicture'
 
 export default function Home() {
 
@@ -30,11 +32,66 @@ export default function Home() {
     }
 
     const UserSection = () => {
+        const [image, setImage] = useState("./img/Racist_Cat.webp")
+
+        const handleImageChange = async (event) => {
+            const file = event.target.files[0]
+            if (file) {
+                const formData = new FormData()
+                formData.append('file-upload', file) 
+                formData.append('clientId', 3) 
+
+                try {
+                    const response = await fetch('http://localhost:3001/upload', {
+                        method: 'POST',
+                        body: formData,
+                    })
+
+                    const data = await response.json()
+                    if (response.ok) {
+                        setProfilePicture(`http://localhost:3001/${data.filePath}`)
+                        setImage(profilePicture)
+
+
+                        console.log("Imagen subida:", data.filePath)
+                    } else {
+                        console.error("Error al subir la imagen:", data.message)
+                    }
+                } catch (error) {
+                    console.error("Error al subir el archivo:", error)
+                }
+            }
+        }
+
+
+
         return (
             <div className="user-section-container">
+
                 <div className="user-section">
 
-                    <img src="./img/Racist_Cat.webp"></img>
+                    <div className="image-container">
+
+
+                        <img src={profilePicture()} />
+
+                        <label htmlFor="file-upload" className="file-upload-label">
+                            <FontAwesomeIcon icon={faPenToSquare} className='setimage-icon' />
+                            <input
+                                type="file"
+                                id="file-upload"
+                                name="file-upload"
+                                accept=".jpg,.jpeg,.png"
+                                className="file-upload-input"
+                                onChange={handleImageChange}
+                            />
+                        </label>
+                    </div>
+
+
+
+
+
 
                     <div className="data-settings-container">
                         <div className="settings-item">
@@ -78,7 +135,7 @@ export default function Home() {
                         </div>
 
                         <div className="settings-item-button"><button className="Button">Cambiar contraseña</button></div>
-                        
+
 
                         {/* <div className="settings-item">
                             <h4>Cambiar Contraseña:</h4>

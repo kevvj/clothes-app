@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import {isLoggedIn, setIsLoggedIn} from '../globals/LogIn'
+import {
+    isLoggedIn, setIsLoggedIn,
+    usernameGlobal, setUsernameGlobal,
+    name, setName,
+    email, setEmail,
+    registrationDate, setRegistrationDate
+} from '../globals/LogIn'
 
 const UserForm = () => {
 
@@ -23,13 +29,20 @@ const UserForm = () => {
             })
 
             const data = await response.json()
-            if(response.ok){
+            if (response.ok) {
                 setIsLoggedIn(true)
                 router.push('/');
                 console.log(data.message)
-                
 
-            }else{
+                setUsernameGlobal(data.user.username)
+                setName(data.user.name)
+                setEmail(data.user.email)
+                setRegistrationDate(data.user.registration_date)
+
+                console.log(usernameGlobal(), name(), email(), registrationDate())
+
+
+            } else {
                 setIsLoggedIn(false)
                 console.error(data.message)
             }
@@ -45,13 +58,13 @@ const UserForm = () => {
         router.push('/register')
     };
 
-    const handleSubmit =  (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         router.push('/')
 
         ////////////////////////////////////
 
-        
+
     }
 
 

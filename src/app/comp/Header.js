@@ -8,9 +8,8 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import { faFrog } from "@fortawesome/free-solid-svg-icons"
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
 import { useState } from 'react'
-
-
 import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
+import {profilePicture, setProfilePicture} from '../globals/ProfilePicture'
 
 
 
@@ -68,7 +67,7 @@ const UserPanel = ({ Fav, CS, UserB }) => {
 
                     {isLoggedIn() ?
 
-                        <img src="./img/Racist_Cat.webp"></img>
+                        <img src={profilePicture()}></img>
 
                         :
 

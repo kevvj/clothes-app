@@ -1,12 +1,12 @@
-.user-section-container{
+.user-section-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.user-section{
+.user-section {
     display: flex;
     margin-top: 30px;
     width: 70%;
@@ -16,39 +16,95 @@
     gap: 200px;
 }
 
-.user-section img{
+.user-section img {
     width: 220px;
     border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
-    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.data-settings-container{
+.data-settings-container {
     display: flex;
     flex-direction: column;
     gap: 50px;
     margin: 20px;
 }
 
-.settings-item{
+.settings-item {
     display: flex;
     gap: 10px;
     align-items: center;
 }
 
-.settings-item button{
+.settings-item button {
     background-color: transparent;
     border: none;
     cursor: pointer;
     width: auto;
 }
 
-.settings-item-button{
+.settings-item-button {
     display: flex;
 }
 
 
+.user-section-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.user-section {
+    display: flex;
+    margin-top: 30px;
+    width: 70%;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    gap: 200px;
+}
+
+.user-section img {
+    width: 220px;
+    height: 220px; 
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    object-fit: cover; 
+    
+}
+
+.data-settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 20px;
+}
+
+
+/* asdasdsaaaaaaaaaa */
+
+
+.image-container {
+    position: relative;
+    height: min-content;
+    margin: 30px;
+  }
+  
+  .file-upload-input {
+    display: none;
+  }
+  
+  .file-upload-label {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  .setimage-icon{
+    font-size: 2rem;
+  }
+  
 
 
 
