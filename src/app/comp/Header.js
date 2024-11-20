@@ -14,15 +14,7 @@ import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
 
 
 const NavBar = () => {
-    const [isClient, setIsClient] = useState(false)
-
-    useEffect(() => {
-        setIsClient(true)
-    }, [])
-
-    if (!isClient) {
-        return null
-    }
+    
     return (
         <nav className="nav-container">
             <Link href="/">Ropa</Link>
@@ -53,10 +45,6 @@ const UserPanel = ({ Fav, CS, UserB }) => {
         setIsClient(true)
     }, [])
 
-    if (!isClient) {
-        return null
-    }
-
     return (
         <div className="user-panel">
             <button className="Button">
@@ -85,7 +73,10 @@ const UserPanel = ({ Fav, CS, UserB }) => {
                     {isLoggedIn() ?
 
                         profilePicture() === "" ?
-                            <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon> : <img src={profilePicture()}></img>
+                            <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon> : 
+                            
+                            isClient ?
+                            <img src={profilePicture()}></img>:<FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon>
 
 
                         :

@@ -19,7 +19,7 @@ import { useStateContext } from '../globals/StateContext'
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
 
 export default function Home() {
-    
+
 
     const { favorites, setFavorites } = useStateContext()
     const { cartShopping, setCartShopping } = useStateContext()
@@ -39,7 +39,7 @@ export default function Home() {
     }
 
     const UserSection = () => {
-        
+
         const [image, setImage] = useState("./img/Racist_Cat.webp")
 
         const [isEditingName, setIsEditingName] = useState(false)
@@ -49,6 +49,12 @@ export default function Home() {
         const [newName, setNewName] = useState(name())
         const [newUsername, setNewUsername] = useState(usernameGlobal())
         const [newEmail, setNewEmail] = useState(email())
+
+        const [isClient, setIsClient] = useState(false)
+
+        useEffect(() => {
+            setIsClient(true)
+        }, [])
 
         const handleImageChange = async (event) => {
             const file = event.target.files[0]
@@ -117,19 +123,13 @@ export default function Home() {
         }
 
         const handleSaveGlobals = () => {
-            
+
 
         }
 
-        const [isClient, setIsClient] = useState(false)
 
-        useEffect(() => {
-            setIsClient(true)
-        }, [])
 
-        if (!isClient) {
-            return null
-        }
+
 
 
         return (
@@ -137,7 +137,11 @@ export default function Home() {
                 <div className="user-section">
                     <div className="image-container">
                         {profilePicture() === "" ?
-                            <FontAwesomeIcon icon={faCircleUser} className="profile-picture-update" /> : <img src={profilePicture()} alt="Profile" />}
+                            <FontAwesomeIcon icon={faCircleUser} className="profile-picture-update" /> :
+                            isClient ?
+                                <img src={profilePicture()} alt="Profile" /> : <FontAwesomeIcon icon={faCircleUser} className="profile-picture-update" />}
+
+
                         <label htmlFor="file-upload" className="file-upload-label">
                             <FontAwesomeIcon icon={faPenToSquare} className="setimage-icon" />
                             <input
@@ -161,7 +165,7 @@ export default function Home() {
                                     onChange={(e) => handleInputChange(e, "name")}
                                 />
                             ) : (
-                                <p>{name()}</p>
+                                <p>{isClient && name()}</p>
                             )}
                             <button onClick={() => handleEditClick("name")}>
                                 <FontAwesomeIcon icon={faPenToSquare} />
@@ -180,7 +184,7 @@ export default function Home() {
                                     onChange={(e) => handleInputChange(e, "username")}
                                 />
                             ) : (
-                                <p>{usernameGlobal()}</p>
+                                <p>{isClient && usernameGlobal()}</p>
                             )}
                             <button onClick={() => handleEditClick("username")}>
                                 <FontAwesomeIcon icon={faPenToSquare} />
@@ -199,7 +203,7 @@ export default function Home() {
                                     onChange={(e) => handleInputChange(e, "email")}
                                 />
                             ) : (
-                                <p>{email()}</p>
+                                <p>{isClient && email()}</p>
                             )}
                             <button onClick={() => handleEditClick("email")}>
                                 <FontAwesomeIcon icon={faPenToSquare} />
