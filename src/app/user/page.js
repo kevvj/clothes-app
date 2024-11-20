@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from "../comp/Header"
 import { useRouter } from 'next/navigation'
 import PrincipalBox from "../comp/Principal-Box"
@@ -19,6 +19,7 @@ import { useStateContext } from '../globals/StateContext'
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
 
 export default function Home() {
+    
 
     const { favorites, setFavorites } = useStateContext()
     const { cartShopping, setCartShopping } = useStateContext()
@@ -38,6 +39,7 @@ export default function Home() {
     }
 
     const UserSection = () => {
+        
         const [image, setImage] = useState("./img/Racist_Cat.webp")
 
         const [isEditingName, setIsEditingName] = useState(false)
@@ -116,6 +118,17 @@ export default function Home() {
 
         const handleSaveGlobals = () => {
             
+
+        }
+
+        const [isClient, setIsClient] = useState(false)
+
+        useEffect(() => {
+            setIsClient(true)
+        }, [])
+
+        if (!isClient) {
+            return null
         }
 
 

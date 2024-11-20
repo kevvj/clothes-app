@@ -7,16 +7,25 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons"
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import { faFrog } from "@fortawesome/free-solid-svg-icons"
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
 
 
 
 const NavBar = () => {
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
+    if (!isClient) {
+        return null
+    }
     return (
         <nav className="nav-container">
-            <Link href="">Ropa</Link>
+            <Link href="/">Ropa</Link>
             <Link href="">Accesorios</Link>
             <Link href="">Ofertas</Link>
             <Link href="">Nuevos productos</Link>
@@ -38,7 +47,15 @@ const TitleWS = () => {
 
 const UserPanel = ({ Fav, CS, UserB }) => {
 
+    const [isClient, setIsClient] = useState(false)
 
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
+    if (!isClient) {
+        return null
+    }
 
     return (
         <div className="user-panel">
@@ -68,7 +85,7 @@ const UserPanel = ({ Fav, CS, UserB }) => {
                     {isLoggedIn() ?
 
                         profilePicture() === "" ?
-                        <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon>:<img src={profilePicture()}></img> 
+                            <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon> : <img src={profilePicture()}></img>
 
 
                         :
@@ -83,8 +100,8 @@ const UserPanel = ({ Fav, CS, UserB }) => {
 
 
 const Header = ({ Fav, CS, UserB }) => {
-
-
+    
+    
 
 
     return (

@@ -1,8 +1,12 @@
-
-
-
-export const profilePicture = () => localStorage.getItem('ProfilePicture') || "";
+export const profilePicture = () => {
+    if (typeof window !== 'undefined') {
+        return localStorage.getItem('ProfilePicture') || ""
+    }
+    return ""
+}
 
 export const setProfilePicture = (n) => {
-    localStorage.setItem('ProfilePicture', n)
+    if (typeof window !== 'undefined') {
+        localStorage.setItem('ProfilePicture', n)
+    }
 }
