@@ -1,49 +1,36 @@
-let LogIn = false
+// Guardar si el usuario está logueado
+export const isLoggedIn = () => JSON.parse(localStorage.getItem('LogIn')) || false
 
-export const isLoggedIn = () => LogIn
+export const setIsLoggedIn = (n) => {
+    localStorage.setItem('LogIn', JSON.stringify(n));
+}
+export const idClient = () => JSON.parse(localStorage.getItem('IdClient')) || 0;
 
-export const setIsLoggedIn = (n) =>{
-    LogIn = n
+export const setIdClient = (n) => {
+    localStorage.setItem('IdClient', JSON.stringify(n));
 }
 
-/* ////////////////////////////// */
+export const usernameGlobal = () => localStorage.getItem('UserName') || "";
 
-let IdClient = 0
-
-let UserName = ""
-
-let Name = ""
-
-let Email = ""
-
-let Registration_date = ""
-
-export const idClient = () => IdClient
-
-export const setidClient = (n) =>{
-    IdClient = n
+export const setUsernameGlobal = (n) => {
+    localStorage.setItem('UserName', n);
 }
 
-export const usernameGlobal = () => UserName
+export const name = () => localStorage.getItem('Name') || "";
 
-export const setUsernameGlobal = (n) =>{
-    UserName = n
+export const setName = (n) => {
+    localStorage.setItem('Name', n)
 }
 
-export const name = () => Name
+export const email = () => localStorage.getItem('Email') || "";
 
-export const setName = (n) =>{
-    Name = n
+export const setEmail = (n) => {
+    localStorage.setItem('Email', n)
 }
 
-export const email = () => Email
 
-export const setEmail = (n) =>{
-    Email = n
-}
+export const registrationDate = () => localStorage.getItem('Registration_date') || "";
 
-export const registrationDate = () => Registration_date
-
-export const setRegistrationDate = (n) =>{
-    Registration_date = n
+export const setRegistrationDate = (n) => {
+    localStorage.setItem('Registration_date', n)
 }

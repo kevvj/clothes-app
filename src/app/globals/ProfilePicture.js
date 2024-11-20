@@ -1,8 +1,8 @@
 
-let PicName = "./img/Racist_Cat.webp"
 
-export const profilePicture = () => PicName
+
+export const profilePicture = () => localStorage.getItem('ProfilePicture') || "";
 
 export const setProfilePicture = (n) => {
-    PicName = n
+    localStorage.setItem('ProfilePicture', n)
 }

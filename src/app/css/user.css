@@ -72,6 +72,16 @@
     object-fit: cover; 
     
 }
+.profile-picture-update{
+    font-size: 220px;
+    
+}
+
+.sign-out{
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .data-settings-container {
     display: flex;

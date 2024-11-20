@@ -2,12 +2,14 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
     isLoggedIn, setIsLoggedIn,
-    idClient,setidClient,
+    idClient,setIdClient,
     usernameGlobal, setUsernameGlobal,
     name, setName,
     email, setEmail,
     registrationDate, setRegistrationDate
 } from '../globals/LogIn'
+
+import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
 
 const UserForm = () => {
 
@@ -35,13 +37,23 @@ const UserForm = () => {
                 router.push('/');
                 console.log(data.message)
 
+                const pic = "http://localhost:3001/"+ data.user.porfilepic
+
                 setUsernameGlobal(data.user.username)
                 setName(data.user.name)
                 setEmail(data.user.email)
                 setRegistrationDate(data.user.registration_date)
-                setidClient(data.user.id)
+                setIdClient(data.user.id)
 
-                console.log("Nombre de usuario: ",usernameGlobal(), "Nombre del cliente: ",name(), "Correo electronico: ",email(),"Fecha de registro: ", registrationDate(),"ID del cliente: ",idClient())
+                
+                 if (data.user.porfilepic) {
+                    setProfilePicture(pic)
+                }else{
+                    setProfilePicture("")
+                }
+                
+
+                console.log("Nombre de usuario: ",usernameGlobal(), "Nombre del cliente: ",name(), "Correo electronico: ",email(),"Fecha de registro: ", registrationDate(),"ID del cliente: ",idClient(), "foto de perfil: ",profilePicture())
 
 
             } else {
