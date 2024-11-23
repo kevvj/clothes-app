@@ -1,6 +1,33 @@
+import { fetchProducts } from '../utils/mockData/Products'
+import { useEffect, useState } from 'react'
 
 
 const PrincipalBox = () => {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const loadProducts = async () => {
+            const data = await fetchProducts()
+            const transformedData = data.map(product => ({
+                id: product.id_producto,     
+                name: product.nombre,      
+                price: parseFloat(product.precio),
+                image: product.imagen,      
+                description: product.descripcion || "", 
+                category: product.categoria || ""
+            }))
+            setProducts(transformedData)
+        }
+
+        loadProducts()
+
+    }, [])
+
+    const a = async () => {
+        console.log(products)
+    }
+
     return (
         <div className="PB-container">
             <div className="recommendations">
@@ -11,7 +38,7 @@ const PrincipalBox = () => {
                     <span>12/10/2024</span>
                 </div>
                 <p>¡Apresúrate! La oferta terminara pronto.</p>
-                <button className="Button">Comprar ahora</button>
+                <button className="Button" onClick={a}>Comprar ahora</button>
             </div>
         </div>
 

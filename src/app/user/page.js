@@ -105,31 +105,63 @@ export default function Home() {
             if (field === "email") setNewEmail(e.target.value)
         }
 
-        const handleSaveChange = (field) => {
+        const handleSaveChange = async (field) => {
+
+            let newValue = ""
+            let newField = ""
+
             if (field === "name") {
                 setName(newName)
                 setIsEditingName(false)
+                newValue = newName
+                newField = "nombre"
             }
             if (field === "username") {
                 setUsernameGlobal(newUsername)
                 setIsEditingUsername(false)
+                newValue = newUsername
+                newField = "nombre_usuario"
             }
             if (field === "email") {
                 setEmail(newEmail)
                 setIsEditingEmail(false)
+                newValue = newEmail
+                newField = "email"
             }
 
-            console.log(name(), usernameGlobal(), email())
+            const userData = {
+                clientId:idClient(),
+                field:newField,
+                newValue
+            }
+
+            console.log("Id:", userData.clientId, "Columna:",userData.field, "Nuevo valor:",userData.newValue)
+
+
+            try {
+                const response = await fetch('http://localhost:3001/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify(userData),
+                })
+
+                const data = await response.json()
+                if (response.ok) {
+                    console.log("Dato actualizado:", data.field)
+                } else {
+                    console.error("Error al actualizar", data.error)
+                }
+            } catch (error) {
+                console.error("Error al actualizar datos", error)
+            }
         }
 
         const handleSaveGlobals = () => {
 
 
         }
-
-
-
-
 
 
         return (

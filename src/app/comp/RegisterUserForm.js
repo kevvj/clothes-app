@@ -19,7 +19,7 @@ const UserForm = () => {
             email,
             username,
             password,
-        };
+        }
 
         try {
             const response = await fetch('http://localhost:3001/register', {
@@ -37,7 +37,7 @@ const UserForm = () => {
                 router.push('/login')
             } else {
                 const data = await response.json();
-                console.error("Error en el registro:", data.message || "Error desconocido");
+                console.error("Error en el registro:", data.error || "Error desconocido");
             }
         } catch (error) {
             console.error("Error en la solicitud de registro: ", error)

@@ -16,6 +16,8 @@ const UserForm = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
+    const [isCorrect, setIsCorrect] = useState(null)
+
     const router = useRouter();
 
     const handleSubmitForm = async (event) => {
@@ -34,6 +36,7 @@ const UserForm = () => {
             const data = await response.json()
             if (response.ok) {
                 setIsLoggedIn(true)
+                setIsCorrect(true)
                 router.push('/');
                 console.log(data.message)
 
@@ -58,7 +61,10 @@ const UserForm = () => {
 
             } else {
                 setIsLoggedIn(false)
+                setIsCorrect(false)
+                console.log(isCorrect)
                 console.error(data.message)
+                
             }
 
         } catch (error) {
@@ -125,7 +131,7 @@ const UserForm = () => {
                     </div>
 
 
-                    {isLoggedIn === false && <p className="error">Usuario o contraseña incorrecta</p>}
+                    {isCorrect === false && <p className="error">Usuario o contraseña incorrecta</p>}
                 </form>
 
             </div>
