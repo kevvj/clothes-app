@@ -37,7 +37,7 @@ const TitleWS = () => {
 }
 
 
-const UserPanel = ({ Fav, CS, UserB }) => {
+const UserPanel = ({ Fav, CS, UserB, CartB }) => {
 
     const [isClient, setIsClient] = useState(false)
 
@@ -59,7 +59,7 @@ const UserPanel = ({ Fav, CS, UserB }) => {
 
                 </div>
             </button>
-            <button className="Button">
+            <button className="Button" onClick={CartB}>
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faCartShopping} className="custom-icon"></FontAwesomeIcon>
 
@@ -90,7 +90,7 @@ const UserPanel = ({ Fav, CS, UserB }) => {
 }
 
 
-const Header = ({ Fav, CS, UserB }) => {
+const Header = ({ Fav, CS, UserB, CartB }) => {
     
     
 
@@ -99,7 +99,7 @@ const Header = ({ Fav, CS, UserB }) => {
         <div className="Header">
             <TitleWS></TitleWS>
             <NavBar></NavBar>
-            <UserPanel Fav={Fav} CS={CS} UserB={UserB}></UserPanel>
+            <UserPanel Fav={Fav} CS={CS} UserB={UserB} CartB={CartB}></UserPanel>
         </div>
     )
 

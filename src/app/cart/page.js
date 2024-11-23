@@ -2,16 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Header from "./comp/Header"
-import PrincipalBox from "./comp/Principal-Box"
-import { SetView } from './utils/renderers/SetView'
-import {fetchProducts } from './utils/mockData/Products'
-import { CartSButton } from './utils/actions/CartButton'
-import { HeartButton } from './utils/actions/HeartButton'
-
-
-import {isLoggedIn, setIsLoggedIn} from './globals/LogIn'
-import { useStateContext } from './globals/StateContext'
+import Header from "../comp/Header"
+import {fetchProducts } from '../utils/mockData/Products'
+import {isLoggedIn, setIsLoggedIn} from '../globals/LogIn'
+import { useStateContext } from '../globals/StateContext'
+import UserCart from '../comp/UserCart'
 
 
 export default function Home() {
@@ -64,15 +59,7 @@ export default function Home() {
   return (
     <>
       <Header Fav={favorites} CS={cartShopping} UserB={UserPanelButton} CartB = {UserCartButton}/>
-      <PrincipalBox  CS={cartShopping}/>
-      
-      <SetView 
-
-      p={products} cartShopping={cartShopping} CartSButton={CartSButton} HeartButton={HeartButton} favorites={favorites} setCartShopping={setCartShopping} setFavorites={setFavorites}
-      
-      />
-
+      <UserCart></UserCart>
     </>
   );
 }
-

@@ -1,0 +1,21 @@
+.user-cart{
+    display: flex;
+    border: 1px solid #ccc;
+    width: 100%;
+    justify-content: center;
+    padding: 30px;
+}
+
+.cart-items-container{
+    border: 1px solid #ccc;
+    width: 70%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cart-items{
+    border: 1px solid #ccc;
+    width: 70%;
+}
