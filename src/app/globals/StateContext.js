@@ -6,13 +6,13 @@ const StateContext = createContext()
 export const StateProvider = ({ children }) => {
     const [favorites, setFavorites] = useState([])
     const [cartShopping, setCartShopping] = useState([])
-    const [carrito, setCarrito] = useState([])
+    const [cart, setCart] = useState([])
 
     return (
         <StateContext.Provider value={
             { favorites, setFavorites, 
             cartShopping, setCartShopping, 
-            carrito, setCarrito }}>
+            cart, setCart }}>
             {children}
         </StateContext.Provider>
     )

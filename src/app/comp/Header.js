@@ -10,11 +10,12 @@ import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
 import { useState, useEffect } from 'react'
 import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
+import { useStateContext } from '../globals/StateContext'
 
 
 
 const NavBar = () => {
-    
+
     return (
         <nav className="nav-container">
             <Link href="/">Ropa</Link>
@@ -38,7 +39,7 @@ const TitleWS = () => {
 
 
 const UserPanel = ({ Fav, CS, UserB, CartB }) => {
-
+    const { cart, setCart } = useStateContext()
     const [isClient, setIsClient] = useState(false)
 
     useEffect(() => {
@@ -63,7 +64,7 @@ const UserPanel = ({ Fav, CS, UserB, CartB }) => {
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faCartShopping} className="custom-icon"></FontAwesomeIcon>
 
-                    <span className={CS.length > 0 ? "notification-badge" : ""} >{CS.length > 0 ? CS.length : ""}</span>
+                    <span className={cart.length > 0 ? "notification-badge" : ""} >{cart.length > 0 ? cart.length : ""}</span>
                 </div>
             </button>
 
@@ -73,10 +74,10 @@ const UserPanel = ({ Fav, CS, UserB, CartB }) => {
                     {isLoggedIn() ?
 
                         profilePicture() === "" ?
-                            <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon> : 
-                            
+                            <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon> :
+
                             isClient ?
-                            <img src={profilePicture()}></img>:<FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon>
+                                <img src={profilePicture()}></img> : <FontAwesomeIcon icon={faCircleUser} className="profile-picture" ></FontAwesomeIcon>
 
 
                         :
@@ -91,8 +92,8 @@ const UserPanel = ({ Fav, CS, UserB, CartB }) => {
 
 
 const Header = ({ Fav, CS, UserB, CartB }) => {
-    
-    
+
+
 
 
     return (

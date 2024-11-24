@@ -18,4 +18,6 @@
 .cart-items{
     border: 1px solid #ccc;
     width: 70%;
+    display: flex;
+    gap: 30px;
 }

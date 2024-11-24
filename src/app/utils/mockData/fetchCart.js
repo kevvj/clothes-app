@@ -1,6 +1,6 @@
 import { useStateContext } from '../../globals/StateContext'
 import { idClient } from '../../globals/LogIn'
-export const fetchCart = async (setCarrito) => {
+export const fetchCart = async (setCart) => {
     const id_cliente = idClient()
     
     try {
@@ -17,7 +17,7 @@ export const fetchCart = async (setCarrito) => {
       }
 
       const data = await response.json()
-      setCarrito(data.cart)
+      setCart(data.cart)
 
       console.log(data.cart)
     } catch (error) {

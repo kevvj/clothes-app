@@ -1,14 +1,14 @@
-import { CartSButton } from '../utils/actions/CartButton'
-import { fetchProducts } from '../utils/mockData/Products'
-import { useEffect, useState } from 'react'
+import { AddToCart } from "../utils/actions/CartButton";
+import { useStateContext } from "../globals/StateContext";
 
-import cartShopping from '../globals/StateContext'
+const PrincipalBox = () => {
 
+    const { cart, setCart } = useStateContext()
 
-const PrincipalBox = ({CS}) => {
+    const but = () =>{
+        AddToCart(5,3)
 
-    const a = () =>{
-        console.log(CS)
+        console.log(cart)
     }
 
     return (
@@ -21,11 +21,11 @@ const PrincipalBox = ({CS}) => {
                     <span>12/10/2024</span>
                 </div>
                 <p>¡Apresúrate! La oferta terminara pronto.</p>
-                <button className="Button" onClick={a}>Comprar ahora</button>
+                <button className="Button" onClick={but}>Comprar ahora</button>
             </div>
         </div>
 
-    );
+    )
 }
 
 

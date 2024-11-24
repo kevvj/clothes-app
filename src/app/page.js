@@ -8,6 +8,7 @@ import { SetView } from './utils/renderers/SetView'
 import {fetchProducts } from './utils/mockData/Products'
 import { CartSButton } from './utils/actions/CartButton'
 import { HeartButton } from './utils/actions/HeartButton'
+import { fetchCart } from './utils/mockData/fetchCart'
 
 
 import {isLoggedIn, setIsLoggedIn} from './globals/LogIn'
@@ -19,7 +20,7 @@ export default function Home() {
   const {cartShopping, setCartShopping} = useStateContext()
 
   const [products, setProducts] = useState([])
-
+  const {cart, setCart} = useStateContext()
   useEffect(() => {
       const loadProducts = async () => {
           const data = await fetchProducts()
@@ -35,6 +36,7 @@ export default function Home() {
       }
 
       loadProducts()
+      fetchCart(setCart)
 
   }, [])
 
@@ -64,7 +66,7 @@ export default function Home() {
   return (
     <>
       <Header Fav={favorites} CS={cartShopping} UserB={UserPanelButton} CartB = {UserCartButton}/>
-      <PrincipalBox  CS={cartShopping}/>
+      <PrincipalBox  />
       
       <SetView 
 
