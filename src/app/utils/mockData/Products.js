@@ -12,6 +12,10 @@ export const fetchProducts = async () => {
   }
 }
 
+export const fetchProductsById = () =>{
+  
+}
+
 
 
 
@@ -23,7 +27,6 @@ export const products = [
   { id: 2, name: "Zapatos deportivos", price: 49.99, image: "https://ae01.alicdn.com/kf/S43619d07a6204d7dba3bb3d4be5c7c76T/Zapatillas-de-deporte-de-moda-para-hombre-zapatos-casuales-para-gimnasio-trotar-tenis-entrenador-planos-suaves.jpg" , description: "", category: ""},
   { id: 3, name: "Camiseta de compresion", price: 30.99, image: "https://s7d7.scene7.com/is/image/GTMSportswear/2611TU?qlt=80,0&resMode=sharp2&fmt=png-alpha&hei=500&wid=500&layer=1&op_colorize=181818" , description: "", category: ""},
   { id: 4, name: "Cinturon", price: 70.99, image: "https://gravityec.com/wp-content/uploads/2024/01/CPN.webp" , description: "", category: ""},
-  { id: 5, name: "Camiseta Blanca Poison", price: 999.99, image: "https://images-na.ssl-images-amazon.com/images/I/51dRXn4pwdS._AC_UL600_SR600,600_.jpg" , description: "", category: ""},
 ]
 
 export const products2 = [

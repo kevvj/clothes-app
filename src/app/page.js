@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Header from "./comp/Header"
 import PrincipalBox from "./comp/Principal-Box"
@@ -19,7 +19,7 @@ export default function Home() {
   const {favorites, setFavorites} = useStateContext()
   const {cartShopping, setCartShopping} = useStateContext()
 
-  const [products, setProducts] = useState([])
+  const {products, setProducts} = useStateContext([])
   const {cart, setCart} = useStateContext()
   useEffect(() => {
       const loadProducts = async () => {

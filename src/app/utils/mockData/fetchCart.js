@@ -10,14 +10,20 @@ export const fetchCart = async (setCart) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ id_cliente }),
-      });
+      })
 
       if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor")
+        console.log('error')
       }
 
       const data = await response.json()
-      setCart(data.cart)
+
+      if(data.cart){
+        setCart(data.cart)
+      }else{
+        setCart([])
+      }
+      
 
       console.log(data.cart)
     } catch (error) {
