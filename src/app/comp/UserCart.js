@@ -28,11 +28,38 @@ const UserCart = () => {
         fetchCart(setCart)
     }, [id_cliente])
 
+    const placeOrder = async (id_producto, cantidad, precio_unitario) => {
+        
 
+        if (!id_cliente, !id_producto, !cantidad, !precio_unitario) {
+            console.error('Faltan datos para eliminar el producto del carrito.')
+            return
+        }
+
+        try {
+            const response = await fetch('http://localhost:3001/add-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id_cliente, id_producto, cantidad, precio_unitario })
+            })
+
+            const data = await response.json();
+
+            if(response.ok){
+                alert(data.message)
+                deleteProduct(id_producto)
+            }
+            
+        } catch (error) {
+            console.error('Error al realizar la solicitud:', error)
+        }
+    }
 
     const deleteProduct = async (id_producto) => {
         if (!id_cliente || !id_producto) {
-            console.error('Faltan datos para eliminar el producto del carrito.');
+            console.error('Faltan datos para eliminar el producto del carrito.')
             return
         }
 
@@ -88,7 +115,7 @@ const UserCart = () => {
                             </div>
 
                             <div className='cart-items-buttons'>
-                                <button className='Button'>pagar</button>
+                                <button className='Button' onClick={() => placeOrder(product.id, item.cantidad, (item.precio * item.cantidad))}>pagar</button>
                                 <button className='Button' onClick={() => deleteProduct(item.id_producto)}>borrar</button>
                             </div>
                         </div>

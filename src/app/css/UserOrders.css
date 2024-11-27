@@ -1,0 +1,48 @@
+.user-orders {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 30px;
+}
+
+.orders-container {
+    border: 1px solid #ccc;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+.orders-container h1 {
+    color: rgb(255, 254, 248);
+    text-shadow:
+        -1px -1px 0 #670035,
+        1px -1px 0 #670035,
+        -1px 1px 0 #670035,
+        1px 1px 0 #670035;
+}
+
+.orders-container span {
+
+    text-shadow: none;
+}
+
+
+
+.orders-container button {
+    margin: 5px 20px;
+    padding: 8px 15px;
+}
+
+.order-item {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item img {
+    width: 90px;
+}

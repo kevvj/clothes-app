@@ -39,7 +39,7 @@ const ClothesBox = ({ prod, HB, Fav, setFavorites }) => {
 
                             <button className="Button" onClick={() => AddToCart(product.id, 1, setCart)}>
 
-                            {cart && cart.some(item => item.id_producto === product.id) ? "Pagar en carrito" : "Añadir al carrito"}
+                            {cart && cart.some(item => item.id_producto === product.id) ? "Añadir mas de esto" : "Añadir al carrito"}
 
 
                             </button>

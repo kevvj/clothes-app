@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react'
 import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
 import { useStateContext } from '../globals/StateContext'
+import { useRouter } from 'next/navigation'
 
 
 
@@ -46,13 +47,23 @@ const UserPanel = ({ Fav, CS, UserB, CartB }) => {
         setIsClient(true)
     }, [])
 
+    const router = useRouter()
+    const OrdersButton = () => {
+        
+
+        router.push('/orders')
+        console.log('?')
+
+
+    }
+
     return (
         <div className="user-panel">
             <button className="Button">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="custom-icon" />
 
             </button>
-            <button className="Button">
+            <button className="Button" onClick={() => OrdersButton()}>
                 <div className="icon-container">
                     <FontAwesomeIcon icon={faHeart} className="custom-icon" />
 
