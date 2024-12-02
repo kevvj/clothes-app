@@ -7,10 +7,10 @@
 
 .cart-items-container{
     border: 1px solid #ccc;
-    padding: 30px;
+    padding: 60px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 60px;
     
 }
 
@@ -37,6 +37,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .cart-items-container button{
@@ -52,8 +53,9 @@
     display: flex;
     gap: 30px;
     padding: 20px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    border-bottom: 1px solid #e4e0e0;
 }
 
 .cart-items img{

@@ -7,6 +7,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons"
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import { faFrog } from "@fortawesome/free-solid-svg-icons"
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
+import { faDumbbell } from "@fortawesome/free-solid-svg-icons"
 import { useState, useEffect } from 'react'
 import { isLoggedIn, setIsLoggedIn } from '../globals/LogIn'
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
@@ -34,7 +35,7 @@ const NavBar = () => {
 
 const TitleWS = () => {
     return (
-        <h1 className="title"><FontAwesomeIcon icon={faFrog} size="1x"></FontAwesomeIcon> SomeThing</h1>
+        <h1 className="title"><FontAwesomeIcon icon={faDumbbell} size="1x"></FontAwesomeIcon> SomeThing</h1>
     )
 }
 

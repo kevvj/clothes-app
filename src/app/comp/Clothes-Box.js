@@ -27,7 +27,7 @@ const ClothesBox = ({ prod, HB, Fav, setFavorites }) => {
 
                         <div className="card-content">
 
-                            <img src={product.image} alt={product.name} className=""></img>
+                            <img src={`http://localhost:3001/${product.image}`} alt={product.name} className=""></img>
 
                             <h2 className="">{product.name}</h2>
 

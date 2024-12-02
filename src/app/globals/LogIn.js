@@ -11,6 +11,19 @@ export const setIsLoggedIn = (n) => {
     }
 }
 
+export const userType = () =>{
+    if (typeof window !== 'undefined') {
+        return JSON.parse(localStorage.getItem('UserType')) || ""
+    }
+    return ""
+}
+
+export const setUserType = (n) =>{
+    if (typeof window !== 'undefined') {
+        localStorage.setItem('UserType', JSON.stringify(n))
+    }
+}
+
 export const idClient = () => {
     if (typeof window !== 'undefined') {
         return JSON.parse(localStorage.getItem('IdClient')) || 0

@@ -4,11 +4,14 @@ import { idClient } from '../globals/LogIn'
 import { useStateContext } from '../globals/StateContext'
 import { fetchCart } from '../utils/mockData/fetchCart'
 import { fetchProducts } from '../utils/mockData/Products'
+import { useRouter } from 'next/navigation'
 
 const UserCart = () => {
     const { products, setProducts } = useStateContext([])
     const { cart, setCart } = useStateContext()
     const id_cliente = idClient()
+
+    const router = useRouter()
 
     useEffect(() => {
         const loadProducts = async () => {
@@ -29,7 +32,7 @@ const UserCart = () => {
     }, [id_cliente])
 
     const placeOrder = async (id_producto, cantidad, precio_unitario) => {
-        
+
 
         if (!id_cliente, !id_producto, !cantidad, !precio_unitario) {
             console.error('Faltan datos para eliminar el producto del carrito.')
@@ -47,11 +50,12 @@ const UserCart = () => {
 
             const data = await response.json();
 
-            if(response.ok){
-                alert(data.message)
+            if (response.ok) {
+                router.push('/paymentgateway')
                 deleteProduct(id_producto)
+                
             }
-            
+
         } catch (error) {
             console.error('Error al realizar la solicitud:', error)
         }
@@ -100,7 +104,7 @@ const UserCart = () => {
                                     <>
                                         <div className='product-title'>
 
-                                            <img src={product.image} alt={product.name} className=""></img>
+                                            <img src={`http://localhost:3001/${product.image}`} alt={product.name} className=""></img>
                                             <h3>{product.name}</h3>
                                         </div>
                                         <div className='item-description'>

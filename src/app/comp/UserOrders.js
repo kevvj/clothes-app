@@ -59,7 +59,7 @@ const UserOrders = () => {
                                 {product ? (
                                     <>
                                         <div className='product-title'>
-                                            <img src={product.image} alt={product.name} className=""></img>
+                                            <img src={`http://localhost:3001/${product.image}`} alt={product.name} className=""></img>
                                             <h3>{product.name}</h3>
                                         </div>
                                         <div className='item-description'>

@@ -6,7 +6,8 @@ import {
     usernameGlobal, setUsernameGlobal,
     name, setName,
     email, setEmail,
-    registrationDate, setRegistrationDate
+    registrationDate, setRegistrationDate,
+    userType, setUserType
 } from '../globals/LogIn'
 
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
@@ -37,8 +38,7 @@ const UserForm = () => {
             if (response.ok) {
                 setIsLoggedIn(true)
                 setIsCorrect(true)
-                router.push('/');
-                console.log(data.message)
+                router.push('/')
 
                 const pic = "http://localhost:3001/"+ data.user.porfilepic
 
@@ -47,16 +47,13 @@ const UserForm = () => {
                 setEmail(data.user.email)
                 setRegistrationDate(data.user.registration_date)
                 setIdClient(data.user.id)
-
+                setUserType(data.user.user_type)
                 
                  if (data.user.porfilepic) {
                     setProfilePicture(pic)
                 }else{
                     setProfilePicture("")
                 }
-                
-
-                console.log("Nombre de usuario: ",usernameGlobal(), "Nombre del cliente: ",name(), "Correo electronico: ",email(),"Fecha de registro: ", registrationDate(),"ID del cliente: ",idClient(), "foto de perfil: ",profilePicture())
 
 
             } else {
@@ -81,10 +78,6 @@ const UserForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         router.push('/')
-
-        ////////////////////////////////////
-
-
     }
 
 

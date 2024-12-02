@@ -1,27 +1,30 @@
-import localFont from "next/font/local";
-import "./globals.css";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import Header from "./comp/Header";
-import { StateProvider } from './globals/StateContext'; // Importa el FavoritesProvider
+import localFont from "next/font/local"
+import "./globals.css"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import { config } from "@fortawesome/fontawesome-svg-core"
+import Header from "./comp/Header"
+import { StateProvider } from './globals/StateContext'
 
-config.autoAddCss = false;
+config.autoAddCss = false
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
-});
+})
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
-});
+})
 
 export const metadata = {
-  title: "Puchaina",
+  title: "Something",
   description: "a prototype",
-};
+  icons: {
+    icon: "/favicon.ico"  
+  }
+}
 
 export default function RootLayout({ children }) {
   return (
@@ -32,5 +35,5 @@ export default function RootLayout({ children }) {
         </StateProvider>
       </body>
     </html>
-  );
+  )
 }

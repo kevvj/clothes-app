@@ -5,6 +5,7 @@
 @import './css/user.css';
 @import './css/UserCart.css';
 @import './css/UserOrders.css';
+@import './css/PaymentGateway.css';
 
 html,
 body {
