@@ -34,8 +34,12 @@ const NavBar = () => {
 
 
 const TitleWS = () => {
+    const router = useRouter()
+    const PrincipalButton = () => {    
+        router.push('/')
+    }
     return (
-        <h1 className="title"><FontAwesomeIcon icon={faDumbbell} size="1x"></FontAwesomeIcon> SomeThing</h1>
+        <h1 className="title" onClick={() => PrincipalButton()}><FontAwesomeIcon icon={faDumbbell} size="1x"></FontAwesomeIcon> SomeThing</h1>
     )
 }
 

@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Header from "../comp/Header"
 import { useRouter } from 'next/navigation'
-import PrincipalBox from "../comp/Principal-Box"
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import {
     isLoggedIn, setIsLoggedIn,
