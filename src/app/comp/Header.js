@@ -17,8 +17,6 @@ import { useRouter } from 'next/navigation'
 
 
 const NavBar = () => {
-    
-
     return (
         <nav className="nav-container">
             <Link href="/categories/clothes">Ropa</Link>
@@ -26,7 +24,7 @@ const NavBar = () => {
             <Link href="/categories/offers">Ofertas</Link>
             <Link href="">Nuevos productos</Link>
             <Link href="">Acerca de</Link>
-            <Link href="https://github.com/kevvj">Contacto</Link>
+            <Link href="https://github.com/kevvj"target="_blank" rel="noopener noreferrer">Contacto</Link>
 
         </nav>
     )

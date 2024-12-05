@@ -88,3 +88,18 @@ export const setRegistrationDate = (n) => {
         localStorage.setItem('Registration_date', n)
     }
 }
+
+export const address = () => {
+    if (typeof window !== 'undefined') {
+        return localStorage.getItem('address') || ""
+    }
+    return ""
+}
+
+export const setAddress = (n) => {
+    if (typeof window !== 'undefined') {
+        localStorage.setItem('address', n)
+    }
+}
+
+

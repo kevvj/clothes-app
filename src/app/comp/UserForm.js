@@ -7,7 +7,7 @@ import {
     name, setName,
     email, setEmail,
     registrationDate, setRegistrationDate,
-    userType, setUserType
+    userType, setUserType, address, setAddress
 } from '../globals/LogIn'
 
 import { profilePicture, setProfilePicture } from '../globals/ProfilePicture'
@@ -48,6 +48,9 @@ const UserForm = () => {
                 setRegistrationDate(data.user.registration_date)
                 setIdClient(data.user.id)
                 setUserType(data.user.user_type)
+                setAddress(data.user.address)
+
+                console.log(data.user.address)
                 
                  if (data.user.porfilepic) {
                     setProfilePicture(pic)
