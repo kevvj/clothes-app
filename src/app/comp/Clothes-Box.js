@@ -18,10 +18,7 @@ const ClothesBox = ({ prod, HB, Fav, setFavorites }) => {
 
     return (
         <div className="c-container">
-
-
             <div className="card-container">
-
                 {prod.map((product) => (
                     <div key={product.id} className="card">
 

@@ -50,8 +50,6 @@ export default function Home() {
     }else{
       router.push('/user')
     }
-    
-    console.log(isLoggedIn())
   }
 
   const UserCartButton = () =>{
@@ -60,7 +58,6 @@ export default function Home() {
     }else{
       router.push('/cart')
     }
-    console.log('huevos')
   }
 
   return (

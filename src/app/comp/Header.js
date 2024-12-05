@@ -17,15 +17,16 @@ import { useRouter } from 'next/navigation'
 
 
 const NavBar = () => {
+    
 
     return (
         <nav className="nav-container">
-            <Link href="/">Ropa</Link>
-            <Link href="">Accesorios</Link>
-            <Link href="">Ofertas</Link>
+            <Link href="/categories/clothes">Ropa</Link>
+            <Link href="/categories/accessories">Accesorios</Link>
+            <Link href="/categories/offers">Ofertas</Link>
             <Link href="">Nuevos productos</Link>
             <Link href="">Acerca de</Link>
-            <Link href="">Contacto</Link>
+            <Link href="https://github.com/kevvj">Contacto</Link>
 
         </nav>
     )
@@ -35,7 +36,7 @@ const NavBar = () => {
 
 const TitleWS = () => {
     const router = useRouter()
-    const PrincipalButton = () => {    
+    const PrincipalButton = () => {
         router.push('/')
     }
     return (
@@ -54,7 +55,7 @@ const UserPanel = ({ Fav, CS, UserB, CartB }) => {
 
     const router = useRouter()
     const OrdersButton = () => {
-        
+
 
         router.push('/orders')
         console.log('?')
@@ -109,14 +110,35 @@ const UserPanel = ({ Fav, CS, UserB, CartB }) => {
 
 const Header = ({ Fav, CS, UserB, CartB }) => {
 
+    const { favorites, setFavorites } = useStateContext()
+    const { cartShopping, setCartShopping } = useStateContext()
+    const router = useRouter()
 
+    const UserCartButton = () => {
+        if (!isLoggedIn()) {
+            router.push('/login')
+        } else {
+            router.push('/cart')
+        }
+    }
+
+    const UserPanelButton = () => {
+
+        if (!isLoggedIn()) {
+            router.push('/login')
+        } else {
+            router.push('/user')
+        }
+    }
+
+    
 
 
     return (
         <div className="Header">
             <TitleWS></TitleWS>
             <NavBar></NavBar>
-            <UserPanel Fav={Fav} CS={CS} UserB={UserB} CartB={CartB}></UserPanel>
+            <UserPanel Fav={favorites} CS={cartShopping} UserB={UserPanelButton} CartB={UserCartButton}></UserPanel>
         </div>
     )
 
